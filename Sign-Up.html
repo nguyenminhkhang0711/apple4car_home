@@ -68,7 +68,7 @@
     }
 
     input[type="text"],
-    
+
     input[type="password"] {
       width: 95%;
       padding: 10px;
@@ -153,26 +153,30 @@
 
       // Gửi yêu cầu POST đến API đăng nhập
       const response = await fetch('https://apple4car.onrender.com/dangnhap', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ "UserName": UserName, "Pass": Pass })
-});
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ "UserName": UserName, "Pass": Pass })
+      });
 
-const data = await response.json(); // Chuyển phản hồi thành dữ liệu JSON
+      const data = await response.json(); // Chuyển phản hồi thành dữ liệu JSON
 
-if (data.success == true) {
-  const oneDay = 3 * 24 * 60 * 60 * 1000; // Số miligiây trong 3 ngày
-document.cookie = `ss=${data.cookieValue}; expires=${new Date(oneDay + Date.now()).toUTCString()}; path=/`;
+      if (data.success == true) {
+      
+        // Sau khi đăng nhập thành công và có mã phiên, lưu nó vào cookie
+        localStorage.setItem('loggedInUser', UserName); // Lưu tên người dùng nếu cần
+        const oneDay = 3 * 24 * 60 * 60 * 1000; // Số miligiây trong 3 ngày
+        document.cookie = `ss=${data.cookieValue}; expires=${new Date(oneDay + Date.now()).toUTCString()}; path=/`;
 
-    // Nếu dữ liệu trả về có UserName (điều này chỉ ra tài khoản đúng), chuyển hướng đến trang chủ
-    window.location.href = './About.html';
-} else {
-   
-    alert(data.message);
-}
-}
+        // Sau đó chuyển hướng đến trang chính
+        window.location.href = 'Home.html';
+
+      } else {
+
+        alert(data.message);
+      }
+    }
 
     );
   </script>

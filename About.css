@@ -6,7 +6,7 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Định dạng tiêu đề */
+/* Định dạng tiêu đề chung */
 h1 {
   background-color: #8f5fe8;
   color: white;
@@ -34,7 +34,7 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
-/* Định dạng bảng */
+/* Định dạng bảng chung */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -68,10 +68,69 @@ footer {
   text-align: center;
   padding: 10px;
 }
-header {
-  margin-bottom: 20px; /* Thay đổi giá trị theo ý muốn */
+
+/* CSS để tạo bảng giống Excel cho trang about */
+#table-container {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-  margin-top: 20px; /* Thay đổi giá trị theo ý muốn */
+/* Định dạng bảng giống Excel */
+#table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#table-container th, #table-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#table-container th {
+  background-color: #509afc;
+}
+
+/* Định dạng form thêm bài đăng */
+#add-post-form {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  display: none;
+}
+
+#add-post-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+#add-post-form input[type="text"],
+#add-post-form input[type="number"],
+#add-post-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#add-post-form button[type="submit"],
+#add-post-form #cancel-button {
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #166ee0;
+  margin-top: 10px;
 }
